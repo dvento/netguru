@@ -1,2 +1,3 @@
+include ':shoplist'
 include ':app'
 rootProject.name = "Code Review"
