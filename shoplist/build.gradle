@@ -44,12 +44,13 @@ dependencies {
     api 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.3'
     api 'io.coil-kt:coil:1.2.1'
 
-    api "com.google.dagger:dagger-android:2.33"
-    api "com.google.dagger:dagger-android-support:2.33"
+    api "com.google.dagger:dagger-android:2.35.1"
+    api "com.google.dagger:dagger-android-support:2.35.1"
     api 'com.squareup.okhttp3:okhttp:4.9.1'
     api 'com.squareup.okhttp3:logging-interceptor:4.9.1'
     api 'com.squareup.retrofit2:retrofit:2.9.0'
     api 'com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0'
+    api 'org.jetbrains.kotlinx:kotlinx-serialization-core:1.1.0'
     api 'org.jetbrains.kotlinx:kotlinx-serialization-core:1.1.0'
     api 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.1.0'
 

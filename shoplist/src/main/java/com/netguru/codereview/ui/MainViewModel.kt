@@ -24,7 +24,7 @@ class MainViewModel : ViewModel() {
             val lists = shopListRepository.getShopLists()
             val data = mutableListOf<Pair<ShopListResponse, List<ShopListItemResponse>>>()
             for (list in lists) {
-                val items = shopListRepository.getShopListItems(list.list_id)
+                val items = shopListRepository.getShopListItems(list.listId)
                 data.add(list to items)
             }
             shopLists.postValue(data)

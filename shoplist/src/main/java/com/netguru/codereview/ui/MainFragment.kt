@@ -33,7 +33,7 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
-        viewModel!!.shopLists.observe(this, { lists ->
+        viewModel!!.shopLists.observe(viewLifecycleOwner, { lists ->
             val progressBar = view.findViewById<ProgressBar>(R.id.message)
             val latestIcon = view.findViewById<ImageView>(R.id.latest_list_icon)
 
@@ -44,19 +44,20 @@ class MainFragment : Fragment() {
             progressBar?.isVisible = false
 
             Log.i("LOGTAG", "LOLOLOL Is it done already?")
+            // TODO: I'd use string resources for the "msg" part, and constant for "tag"
 
 
             // Display the list in recyclerview
             // adapter.submitList(shopLists)
         })
-        viewModel!!.events().observe(this, {
+        viewModel!!.events().observe(viewLifecycleOwner, {
             Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
         })
     }
 
     private fun mapShopList(list: ShopListResponse, items: List<ShopListItemResponse>) =
         ShopList(
-            list.list_id,
+            list.listId,
             list.userId,
             list.listName,
             list.listName,

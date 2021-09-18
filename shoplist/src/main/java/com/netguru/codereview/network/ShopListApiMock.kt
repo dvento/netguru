@@ -8,11 +8,16 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
 class ShopListApiMock : ShopListApi {
+    object ShopListCons {
+        const val listSize = 9999
+        const val listItemSize = 5
+        const val updateDelay = 5000L
+    }
     override suspend fun getShopLists(): List<ShopListResponse> =
         coroutineScope {
-            List(9999) { index ->
+            List(ShopListCons.listSize) { index ->
                 ShopListResponse(
-                    list_id = index.toString(),
+                    listId = index.toString(),
                     userId = index,
                     listName = "ListName$index"
                 )
@@ -22,7 +27,7 @@ class ShopListApiMock : ShopListApi {
     override suspend fun getShopListItems(listId: String): List<ShopListItemResponse> =
         coroutineScope {
             Thread.sleep(2)
-            List(5) { index ->
+            List(ShopListCons.listItemSize) { index ->
                 ShopListItemResponse(
                     itemId = index.toString(),
                     name = "Name$index",
@@ -35,7 +40,7 @@ class ShopListApiMock : ShopListApi {
         var counter = 0
         while (true) {
             counter++
-            delay(5000)
+            delay(ShopListCons.updateDelay)
             emit("Update $counter")
         }
     }
